@@ -8,8 +8,27 @@ const nav4 = document.getElementById("nav-4");
 const nav5 = document.getElementById("nav-5");
 
 
+// initiliaze of website overlay list class
+console.log("initiliaze");
+console.log(overlay.classList);
+
 function toggleNav() {
+    // toggle to menubar open/close
     menuBars.classList.toggle("change");
+
+    overlay.classList.toggle("overlay-active");
+    console.log("before if statement");
+    console.log(overlay.classList);
+   
+    if (overlay.classList.contains("overlay-active")) {
+        // show animation
+        overlay.classList.remove("overlay-slide-left");
+        overlay.classList.add("overlay-slide-right");
+    } else {
+        overlay.classList.remove("overlay-slide-right");
+        overlay.classList.add("overlay-slide-left");
+    }
+
 }
 
 
