@@ -8,25 +8,44 @@ const nav4 = document.getElementById("nav-4");
 const nav5 = document.getElementById("nav-5");
 
 
-// initiliaze of website overlay list class
-console.log("initiliaze");
-console.log(overlay.classList);
+function handleRemoveAdd(removeClassName, addClassName) {
+    // start loop from 1 to 5
+    // each loop it will remove and add an element, a class
+
+    for (let i=1; i<6; i++) {
+        let navName = "nav-" + i;
+        const navElement = document.getElementById(navName);
+        navElement.classList.remove(removeClassName + i);
+        navElement.classList.add(addClassName + i);
+        console.log(navName)
+    }
+}
+
+
 
 function toggleNav() {
     // toggle to menubar open/close
     menuBars.classList.toggle("change");
 
     overlay.classList.toggle("overlay-active");
-    console.log("before if statement");
-    console.log(overlay.classList);
+
    
     if (overlay.classList.contains("overlay-active")) {
-        // show animation
+        
+        // show slide
         overlay.classList.remove("overlay-slide-left");
         overlay.classList.add("overlay-slide-right");
+
+        // add animation to navigation
+        
+        handleRemoveAdd("slide-out-", "slide-in-");
+
     } else {
         overlay.classList.remove("overlay-slide-right");
         overlay.classList.add("overlay-slide-left");
+
+        // add animation to navigation
+        handleRemoveAdd("slide-in-", "slide-out-");
     }
 
 }
